@@ -1,0 +1,11 @@
+def replace_repeated_chars(s, k):
+    char_positions = {}
+    chars = list(s)
+    for i, char in enumerate(chars):
+        if char in char_positions and i - char_positions[char] <= k:
+            chars[i] = '-'
+        char_positions[char] = i
+    return ''.join(chars)
+
+s, k = sys.argv[1], int(sys.argv[2])
+print(replace_repeated_chars(s, k))
